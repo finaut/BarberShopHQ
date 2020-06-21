@@ -6,7 +6,12 @@ require 'sinatra/activerecord'
 set :database, {adapter: "sqlite3", database: "barbershop.sqlite3"}
 # создаем новую сушность для обьекта Client
 class Client < ActiveRecord::Base
-
+  # вызываем метод валидации в котором мы указываем что мы будем проверять
+  # параметр имя на наличие  пареметр имени просотое значение
+  validates( :name, presence: true)
+  validates( :phone, presence: true)
+  validates( :datestamp, presence: true)
+  validates( :color, presence: true)
 end
 
 class Barber < ActiveRecord::Base
@@ -26,24 +31,17 @@ before do
 end
 
 get '/' do
-
   herb :index
 end
-post '/' do
-  @name = params[:name]
-  @phone = params[:phone]
-  @dateshop = params[:dateshop]
-  @barber = params[:barber]
-  @color = params[:color]
-  # запись иноформации в БД при помощи ORM
-  # name, phone, datestamp, barber, color
-  # не хочу делать через оперативную лучше сразу в БД все кидать
-  Client.create(
-  name: @name,
-  phone: @phone,
-  datestamp: @dateshop,
-  barber: @barber,
-  color: @color)
 
-  herb("Спасибо ваша заявка принята в обработку")
+post '/' do
+  # новый экземпляр класса
+  c = Client.new params[:client]
+  c.save
+
+  if c.save
+    herb('Спасибо ваша заявка была принята в обработку')
+  else
+    ('Ошибка ')
+  end
 end

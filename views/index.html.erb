@@ -1,25 +1,16 @@
-<div class="alert alert-danger" id="alert" role="alert"><%= @error %></div>
 <div class="froms">
     <form action="/" method='POST'>
       <label for="name">Name: </label> </br>
-      <input type="text" name="name" class="form-control" placeholder="Danil" value="<%= @name %>"> </br>
+      <input type="text" name="client[name]" class="form-control" placeholder="Danil" value=""></br>
+
       <label for="phone">Mobile:</label> </br>
-      <input type="text" name="phone" class="form-control" value="<%= @mobile %>" placeholder="+380662717550" > </br>
+      <input type="text" name="client[phone]" class="form-control"  placeholder="+380662717550" value="" ></br>
+
       <label for="dateshop">Datashop: </label> </br>
-      <input  type="text" name="dateshop" class="form-control" id='datetimepicker' value="<%= @dateshop %>" placeholder="24.01.2000" > </br>
-      <script type="text/javascript" charset="utf-8">
-          $(function () {
-              $('#datetimepicker').datetimepicker();
-          });
-      </script>
-      <label for="barber">Barber: </label>
-        <select name="barber" class="form-control">
-          <% @barbers.each do |bar|  %>
-            <option <%= @barber == bar['name'] ? 'selected' : '' %> ><%= bar['name'] %></option>
-          <% end %>
-        </select> </br>
+      <input  type="text" name="client[datestamp]" class="form-control" id='datetimepicker' value="" placeholder="24.01.2000" > </br>
+
         <div class="sss">
-        <select id="color" name="color">
+        <select name="client[color]" id="color" >
           <option value="#7bd148">Green</option>
           <option value="#5484ed">Bold blue</option>
           <option value="#a4bdfc">Blue</option>
@@ -37,6 +28,11 @@
         </div>
     </form>
   </div>
+  <script type="text/javascript" charset="utf-8">
+      $(function () {
+          $('#datetimepicker').datetimepicker();
+      });
+  </script>
   <script type="text/javascript">
       $(function() {
           $("#color").simplecolorpicker();
