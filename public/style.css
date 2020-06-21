@@ -1,0 +1,35 @@
+.froms {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+}
+#danger {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 400px;
+  border: 2px solid darkred;
+  margin-right: auto;
+  margin-left: auto
+}
+#alert {
+  margin-top: 100px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sss {
+  text-align: center;
+}
+.messenger {
+  border: 2px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 400px;
+  margin-right: auto;
+  margin-left: auto
+}
+#eee {
+  padding-top: 100px;
+  margin-top: 100px;
+}
